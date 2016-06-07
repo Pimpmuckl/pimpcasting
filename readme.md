@@ -126,7 +126,9 @@ Questions: Via Email or Twitter.
 
 Files
 
-
+######################################################################
+######                     playing.cfg                         #######
+######################################################################
 
 playing.cfg:
 
@@ -152,15 +154,22 @@ bind "MOUSE4" "+voicerecord"
 dota_hud_netgraph 1
 
 echo "Executed playing.cfg"
+
+
+######################################################################
+######                  pimpcasting.cfg                        #######
+######################################################################
+
+
 pimpcasting.cfg
 
-//Casting/Obs config file 0.2.1 (2016.04.16) by Jonathan "PimpmuckL" Liebig
+//Casting/Obs config file 0.2.2 (2016.06.07) by Jonathan "PimpmuckL" Liebig
 //Any questions, please use pimpmuckl [at] gmail [dot] com or https://twitter.com/PimpmuckL
 //Please make sure you read the readme.txt first before executing it
 
 
 //////////////////////////////////////////////////
-//             Camera section                   //
+//              Camera section                  //
 //////////////////////////////////////////////////
 
 //Camera speed
@@ -177,14 +186,17 @@ dota_camera_mousewheel_direction_multiplier 0.0075
 dota_camera_mousewheel_delay_reset_interval 0
 dota_camera_mousewheel_start_delay 0.1
 
-//No zoom in
+//No zoom in (cheat protected for now)
 dota_camera_disable_yaw 1
+
+//Make sure zoom out is enabled
+dota_camera_disable_zoom 0
 
 //Disable edge moving, don't ever use it
 dota_camera_edgemove 0
 
 //////////////////////////////////////////////////
-//             Minimap section                  //
+//              Minimap section                 //
 //////////////////////////////////////////////////
 
 
@@ -199,10 +211,10 @@ dota_minimap_hero_scalar_distance 6
 dota_minimap_hero_scalar_minimum 700
 
 //fps max only needed when running 1pc setup
-fps_max 60
+fps_max 61
 
 //////////////////////////////////////////////////
-//             Cosmetic section                 //
+//              Cosmetic section                //
 //////////////////////////////////////////////////
 
 //Only works in DotaTV for now
@@ -227,11 +239,14 @@ snd_setmixer ping vol 0.1
 //Disables the netgraph in the top right
 dota_hud_netgraph 0
 
+//Locking camera on current selected unit
+dota_camera_hold_select_to_follow 1
+
 //Shuts up roshan, use it when doing a live event. Mutes smoke and roshan sounds.
 //dota_silent_roshan 1
 
 //////////////////////////////////////////////////
-//            Keybind section                   //
+//              Keybind section                 //
 //////////////////////////////////////////////////
 
 //Assist bind holding shift
@@ -243,15 +258,20 @@ bind shift "+assisted"
 bind "MOUSE4" "dota_toggle_assisted_camera_operator"
 dota_combatlog_file "testcombat.txt"
 
-//Toggle openmic on and off
-bind CAPSLOCK "mic_toggle"
+//Toggle openmic on and off 
+alias OpenMic "+voicerecord; alias MicToggle ClosedMic" 
+alias ClosedMic "-voicerecord; alias MicToggle OpenMic" 
+alias MicToggle OpenMic
+bind "CAPSLOCK" MicToggle
 
 //Quick toggle to check for server lag
-bind "F10" "custom_toggle_netgraph"
+bind "F10" "toggle dota_hud_netgraph"
 
 //This is a fix to the issue with foreign keyboards and wrong binds, DON'T use it if you don't have issues
 //unbind "Z"
 //bind "Z" "stat_dropdown networth"
+
+
 
 
 echo "Executed pimpcasting.cfg"
