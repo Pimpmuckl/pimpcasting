@@ -1,3 +1,4 @@
+# pimpcasting
 Hey folks, 
 
 figured I should at least give rough directions when open sourcing my config. So here it goes, got way too big but there's a lot to talk about, I promise it's #worth.
